@@ -1,45 +1,66 @@
-version: '3.8'
 
 services:
   mongo1:
-    image: mongo
-    container_name: mongo1
-    command: mongod --replSet rs0 --port 27017 --dbpath /data/db --keyFile /data/keyfile
-    volumes:
-      - ./mongo.key:/data/keyfile
-      - mongo1_data:/data/db
-    ports:
-      - "27017:27017"
+    image: mongo:6
+    hostname: mongo1
     networks:
       - mongo_network
+    container_name: mongo1
+    ports:
+      - 27017:27017
+    entrypoint: ["mongod", "--replSet", "myReplicaSet", "--bind_ip", "0.0.0.0"]
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 15s
+      retries: 5
+
 
   mongo2:
-    image: mongo
+    image: mongo:6
+    hostname: mongo2
     container_name: mongo2
-    command: mongod --replSet rs0 --port 27017 --dbpath /data/db --keyFile /data/keyfile
-    volumes:
-      - ./mongo.key:/data/keyfile
-      - mongo2_data:/data/db
     ports:
-      - "27217:27017"
+      - 27018:27017
+    entrypoint: ["mongod", "--replSet", "myReplicaSet", "--bind_ip", "0.0.0.0"]
     networks:
       - mongo_network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 15s
+      retries: 5
+
   mongo3:
-    image: mongo
+    image: mongo:6
+    hostname: mongo3
     container_name: mongo3
-    command: mongod --replSet rs0 --port 27017 --dbpath /data/db --keyFile /data/keyfile
-    volumes:
-      - ./mongo.key:/data/keyfile
-      - mongo3_data:/data/db
     ports:
-      - "27317:27017"
+      - 27019:27017
+    entrypoint: ["mongod", "--replSet", "myReplicaSet", "--bind_ip", "0.0.0.0"]
+    networks:
+      - mongo_network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 15s
+      retries: 5
+
+  mongosetup:
+    image: mongo:6
+    depends_on:
+      mongo1:
+        condition: service_healthy
+      mongo2:
+        condition: service_healthy
+      mongo3: 
+        condition: service_healthy
+    volumes:
+      - ./scripts:/scripts
+    restart: on-failure:3
+    entrypoint: [ "bash", "/scripts/mongo-setup.sh"]
     networks:
       - mongo_network
 networks:
   mongo_network:
     driver: bridge
-
-volumes:
-  mongo1_data:
-  mongo2_data:
-  mongo3_data:
