@@ -22,3 +22,5 @@ services:
 volumes:
   mongo1_data:
   mongo1_config:
+
+  # docker-compose down -v && docker-compose up -d --wait
