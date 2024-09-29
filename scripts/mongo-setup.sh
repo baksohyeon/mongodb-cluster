@@ -1,22 +1,20 @@
    #!/bin/bash
 
    echo "Waiting for MongoDB to start..."
-   sleep 30
+   sleep 5
 
    echo "Initializing replica set..."
    mongosh --host localhost:27017 --eval '
    rs.initiate({
      _id: "myReplicaSet",
      members: [
-       {_id: 0, host: "mongo1:27017", priority: 2},
-       {_id: 1, host: "mongo2:27017", priority: 0},
-       {_id: 2, host: "mongo3:27017", priority: 0}
+       {_id: 0, host: "mongo1:27017", priority: 1},
      ]
    })
    '
 
    echo "Waiting for replica set to initialize..."
-   sleep 30
+   sleep 10
 
    echo "Creating admin user..."
    mongosh --host localhost:27017 --eval '
@@ -29,3 +27,5 @@
    '
 
 echo "Setup completed."
+# docker-compose down -v && docker-compose up -d --wait
+# DB_CONN = "mongodb://localhost:27017/?replicaSet=rs0&directConnection=true"
