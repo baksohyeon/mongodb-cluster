@@ -1,0 +1,84 @@
+[
+  {
+    "_id": {
+      "$oid": "6704d1398e387822bf5fec55"
+    },
+    "serverId": "cs_0",
+    "gameId": "",
+    "owner": "",
+    "state": "ready",
+    "gsId": "gs_0",
+    "gameMode": 2,
+    "gameConfig": "{\"GameTitle\":\"TEST_GAME_TITLE\",\"Blind\":[{\"Lv\":1,\"Small\":1,\"Big\":2,\"PB\":0,\"Ante\":0,\"Time\":999999}],\"BettingTime\":12000,\"MaxPlayerCount\":9,\"BettingRule\":\"no-limit\",\"MinBuyInAmount\":50,\"MaxBuyInAmount\":50,\"BuytheButton\":false,\"AnteMode\":\"NONE\",\"Password\":\"\",\"TimebankBonusAmount\":0,\"IsTimebankEnabled\":false,\"TimebankBeginningAmount\":0,\"TimebankBonusInterval\":0,\"TimebankMaxAmount\":0,\"Prize\":null,\"ShowdownTime\":0}",
+    "createTime": {
+      "$date": "2024-10-08T06:29:13.030Z"
+    },
+    "startTime": {
+      "$date": "2024-10-08T06:51:19.274Z"
+    },
+    "endTime": {
+      "$date": "1970-01-01T00:00:00.000Z"
+    },
+    "regCount": 0,
+    "reRegCount": 0,
+    "regLimitTime": {
+      "$date": "1970-01-01T00:00:00.000Z"
+    },
+    "tableCount": 0,
+    "nextTableIdx": 1,
+    "blindIdx": 0,
+    "elapsedTime": 0,
+    "paused": false,
+    "activePlayers": 0,
+    "activeTables": 0,
+    "maxPlayerCount": 9,
+    "keyCount": 0,
+    "timebankBeginningAmount": 0,
+    "timebankBonusInterval": 0,
+    "timebankBonusAmount": 0,
+    "updatedAt": {
+      "$date": "2024-10-08T06:55:15.897Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6704d9188e387822bf5ff80c"
+    },
+    "serverId": "cs_0",
+    "gameId": "new_game_id",
+    "owner": "new_owner_id",
+    "state": "prepare",
+    "gsId": "gs_0",
+    "gameMode": 2,
+    "gameConfig": "{\"GameTitle\":\"TEST_GAME_TITLE\",\"Blind\":[{\"Lv\":1,\"Small\":1,\"Big\":2,\"PB\":0,\"Ante\":0,\"Time\":999999}],\"BettingTime\":12000,\"MaxPlayerCount\":9,\"BettingRule\":\"no-limit\",\"MinBuyInAmount\":50,\"MaxBuyInAmount\":50,\"BuytheButton\":false,\"AnteMode\":\"NONE\",\"Password\":\"\",\"TimebankBonusAmount\":10000,\"IsTimebankEnabled\":true,\"TimebankBeginningAmount\":20000,\"TimebankBonusInterval\":30,\"TimebankMaxAmount\":60000,\"Prize\":null,\"ShowdownTime\":6000}",
+    "createTime": {
+      "$date": "2024-10-08T07:02:48.568Z"
+    },
+    "startTime": {
+      "$date": "1970-01-01T00:00:00.000Z"
+    },
+    "endTime": {
+      "$date": "1970-01-01T00:00:00.000Z"
+    },
+    "regCount": 0,
+    "reRegCount": 0,
+    "regLimitTime": {
+      "$date": "1970-01-01T00:00:00.000Z"
+    },
+    "tableCount": 0,
+    "nextTableIdx": 1,
+    "blindIdx": 0,
+    "elapsedTime": 0,
+    "paused": false,
+    "activePlayers": 0,
+    "activeTables": 0,
+    "maxPlayerCount": 9,
+    "keyCount": 0,
+    "timebankBeginningAmount": 20000,
+    "timebankBonusInterval": 30,
+    "timebankBonusAmount": 10000,
+    "updatedAt": {
+      "$date": "2024-10-08T07:02:48.668Z"
+    }
+  }
+]
